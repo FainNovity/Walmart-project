@@ -27,8 +27,8 @@ export default function Home(props){
        </button>
      </div> 
 
-     <ProductLink search={search} />
-     <Products />
+     <ProductLink />
+     <Products search={search} />
      </>
     )
 }
