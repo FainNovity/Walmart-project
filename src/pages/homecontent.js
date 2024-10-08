@@ -30,7 +30,7 @@ export function Products(){
     price:""
   }]);
   useEffect(()=>{
-      fetch("http://localhost:9999/product")
+      fetch("http://localhost:9999/product",{body:new URLSearchParams({search:search})})
       .then(res => res.json())
       .then(res => setData(res)).catch(err=>console.log(err))
   },[]);
