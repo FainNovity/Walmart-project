@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Footer, Navbar } from './components/layout';
 import Home from './pages/home';
@@ -11,14 +11,14 @@ import Login from './components/login';
 
 
 function App(){
-  
+  const [search,setSearch] = useState("");
   return( 
     <BrowserRouter>
     
     <Routes>
       <Route path='/' element={<Login />} />
-      <Route path='/home' element={<><Navbar /><Outlet /></>} >
-          <Route index element={<Home />} />
+      <Route path='/home' element={<><Navbar setSearch = {setSearch} /><Outlet /></>} >
+          <Route index element={<Home search={search} />} />
           <Route path='/home/contact' element={<Contact />} />
           <Route path='/home/cart' element={<Cart />} />
           <Route path='/home/admin/products' element={<ProductsList />} />
