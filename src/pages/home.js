@@ -1,7 +1,8 @@
 import { Products } from "./homecontent";
 import { ProductLink } from "./homecontent";
 
-export default function Home(){
+export default function Home(props){
+    const {search} = props;
     return(
        <>
        <div id="carouselExample" style={{background: 'linear-gradient(0deg,transparent -10%, rgb(138,147,129))'}} className="carousel slide">
@@ -26,7 +27,7 @@ export default function Home(){
        </button>
      </div> 
 
-     <ProductLink/>
+     <ProductLink search={search} />
      <Products />
      </>
     )
