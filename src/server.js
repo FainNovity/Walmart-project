@@ -41,7 +41,7 @@ mongoose.connect(connectionString).then(()=>{
 
     app.get("/product",async (req,res)=> {
         try {
-            const product = await prods.find();  // Use 'prods' to access the model
+            const product = await prods.find({tags: new RegExp(req.body.search,'i')});  // Use 'prods' to access the model
             res.send(JSON.stringify(product));
         } catch (err) {
             res.status(500).send("Error fetching products");
