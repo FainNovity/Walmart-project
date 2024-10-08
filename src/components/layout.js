@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
-export function Navbar(){
+export function Navbar(props){
+    let {setSearch} = props;
     return(
         <nav className="navbar navbar-expand-lg bg-white border-bottom box-shadow">
         <div className="container">
@@ -17,7 +18,10 @@ export function Navbar(){
               
             </ul>
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <input className="form-control me-2" type="search" onChange={ (e)=>{
+                let searchData = e.target.value;
+                setSearch(searchData);
+              }} placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
             <ul className="navbar-nav">
